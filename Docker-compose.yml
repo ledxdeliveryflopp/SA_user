@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+
+  user:
+    container_name: user-microservice
+    build:
+      ./
+    command: uvicorn main:user_microservice --host 0.0.0.0 --port 7400
+    ports:
+      - "7400:7400"
+    networks:
+      - sql
+      - nginx
+
+networks:
+  sql:
+    external: true
+  nginx:
+    external: true
