@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "sa-user-microservice"
+version = "0.1.0"
+description = ""
+authors = ["LedxDeliveryFlopp <korstim18@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.111.0"
+uvicorn = "^0.29.0"
+sqlalchemy = "^2.0.30"
+pydantic-settings = "^2.2.1"
+asyncpg = "^0.29.0"
+psycopg2-binary = "^2.9.9"
+python-jose = "^3.3.0"
+pre-commit = "^3.7.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.7.1"
