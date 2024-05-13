@@ -28,3 +28,8 @@ class BadAuthorizationHeaderExceptions(DetailedHTTPException):
 class UserDontExistExceptions(DetailedHTTPException):
     status_code = status.HTTP_400_BAD_REQUEST
     detail = "User dont exist."
+
+
+class BadFileExtensions(DetailedHTTPException):
+    status_code = status.HTTP_400_BAD_REQUEST
+    detail = "png, jpg resolution files are allowed"

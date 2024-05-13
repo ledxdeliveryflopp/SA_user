@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, UploadFile, File
 from starlette.requests import Request
 from src.user.schemas import DetailedUserSchemas, BaseUserSchemas
 from src.user.service import UserService, init_user_service
@@ -18,3 +18,10 @@ async def find_user_router(name: str | None = None, surname: str | None = None,
                            service: UserService = Depends(init_user_service)):
     """Роутер поиска пользователей"""
     return await service.find_user(name, surname)
+
+
+@user_router.patch("/add-avatar/", response_model=DetailedUserSchemas)
+async def add_avatar_router(request: Request, file: UploadFile = File(),
+                            service: UserService = Depends(init_user_service)):
+    """Роутер добавление аватара"""
+    return await service.add_avatar(request=request, avatar=file)
