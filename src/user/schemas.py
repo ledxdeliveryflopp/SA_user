@@ -7,6 +7,7 @@ class BaseUserSchemas(BaseModel):
     name: str
     surname: str
     city: str
+    avatar: str
 
 
 class DetailedUserSchemas(BaseUserSchemas):
