@@ -21,7 +21,7 @@ async def find_user_router(name: str | None = None, surname: str | None = None,
 
 
 @user_router.patch("/add-avatar/", response_model=DetailedUserSchemas)
-async def add_avatar_router(request: Request, file: UploadFile = File(),
+async def add_avatar_router(request: Request, avatar: UploadFile = File(),
                             service: UserService = Depends(init_user_service)):
     """Роутер добавление аватара"""
-    return await service.add_avatar(request=request, avatar=file)
+    return await service.add_avatar(request, avatar)
